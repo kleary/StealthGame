@@ -11,8 +11,18 @@ class AStealthGameGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
+protected:
+
+	UPROPERTY(EditDefaultsOnly, Category = "Spectator")
+	TSubclassOf<AActor> SpectatorViewpointClass;
+
 public:
 	AStealthGameGameMode();
+
+	void CompleteMission(APawn* InstigatorPawn);
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "GameMode")
+	void OnMissionCompleted(APawn* InstigatorPawn);
 };
 
 
